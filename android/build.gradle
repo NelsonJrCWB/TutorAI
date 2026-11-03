@@ -12,7 +12,7 @@ subprojects {
 subprojects {
     project.evaluationDependsOn(":app")
 
-    // Força o compilador do Kotlin a usar a linguagem 1.8 em todos os módulos e dependências externas
+    // Força o compilador do Kotlin a usar a versão 1.8 em todos os módulos e bibliotecas
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
         kotlinOptions {
             languageVersion = "1.8"

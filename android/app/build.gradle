@@ -1,7 +1,7 @@
 plugins {
     id "com.android.application"
-    id "kotlin-android"
-    id "dev.flutter.flutter-main-package"
+    id "org.jetbrains.kotlin.android"
+    id "dev.flutter.flutter-plugin-loader"
 }
 
 android {
