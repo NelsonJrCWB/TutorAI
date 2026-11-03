@@ -16,6 +16,9 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+def flutterSdkPath = localProperties.getProperty('flutter.sdk')
+assert flutterSdkPath != null : "flutter.sdk não configurado em local.properties"
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterSdkPath/packages/flutter_tools/gradle/flutter.gradle"
