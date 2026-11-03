@@ -15,7 +15,10 @@ android {
 
     kotlinOptions {
         jvmTarget = "17"
-        freeCompilerArgs += ["-language-version", "1.8"]
+        freeCompilerArgs += [
+            "-language-version", "1.8",
+            "-api-version", "1.8"
+        ]
     }
 
     defaultConfig {
