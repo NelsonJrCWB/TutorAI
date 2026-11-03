@@ -12,6 +12,7 @@ subprojects {
 subprojects {
     project.evaluationDependsOn(":app")
 
+    // Força a versão de linguagem 1.8 e target JVM 17 em todos os módulos/dependências
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
         kotlinOptions {
             languageVersion = "1.8"
