@@ -12,7 +12,7 @@ subprojects {
 subprojects {
     project.evaluationDependsOn(":app")
 
-    // Força a versão de linguagem 1.8 e target JVM 17 em todas as tarefas de compilação Kotlin
+    // Força o compilador Kotlin a utilizar a versão de linguagem 1.8 e JVM 17 em TODOS os subprojetos e dependências externas
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
         kotlinOptions {
             languageVersion = "1.8"
