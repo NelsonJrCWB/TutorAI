@@ -25,12 +25,21 @@ subprojects {
 subprojects {
     project.evaluationDependsOn(':app')
 
-    // Força versão de linguagem 1.8 e JVM 17 em todas as tarefas do Kotlin
-    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
-        kotlinOptions {
-            languageVersion = "1.8"
-            apiVersion = "1.8"
-            jvmTarget = "17"
+    // Injeta compileSdkVersion e namespace para subprojetos de plugins nativos
+    afterEvaluate { subproject ->
+        if (subproject.hasProperty('android')) {
+            subproject.android {
+                compileSdkVersion 35
+                
+                // Força a versão da API do compilador Kotlin
+                if (subproject.plugins.hasPlugin('kotlin-android')) {
+                    kotlinOptions {
+                        languageVersion = "1.8"
+                        apiVersion = "1.8"
+                        jvmTarget = "17"
+                    }
+                }
+            }
         }
     }
 }
