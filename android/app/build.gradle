@@ -25,7 +25,7 @@ apply from: "$flutterSdkPath/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
     namespace "com.tutorai.tutorai"
-    compileSdk 35
+    compileSdk 34
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
@@ -39,7 +39,7 @@ android {
     defaultConfig {
         applicationId "com.tutorai.tutorai"
         minSdk 23
-        targetSdk 35
+        targetSdk 34
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
