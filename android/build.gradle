@@ -25,15 +25,23 @@ subprojects {
 subprojects {
     project.evaluationDependsOn(':app')
 
-    // Alinha a compatibilidade do Java e Kotlin para JVM 17 em todas as dependencias nativas
+    // Força JVM 17 uniformemente para Java e Kotlin em todos os plugins nativos
     tasks.withType(JavaCompile).configureEach {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_17.toString()
+        targetCompatibility = JavaVersion.VERSION_17.toString()
+    }
+
+    plugins.withId('org.jetbrains.kotlin.android') {
+        tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+            kotlinOptions {
+                jvmTarget = '17'
+            }
+        }
     }
 
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
         kotlinOptions {
-            jvmTarget = "17"
+            jvmTarget = '17'
         }
     }
 }
