@@ -25,18 +25,6 @@ subprojects {
 subprojects {
     project.evaluationDependsOn(':app')
 
-    // Injeta compileSdkVersion e opçoes de Kotlin nos subprojetos/plugins sem disparar o erro de afterEvaluate
-    project.plugins.withId('com.android.library') {
-        project.android {
-            compileSdkVersion 35
-        }
-    }
-    project.plugins.withId('com.android.application') {
-        project.android {
-            compileSdkVersion 35
-        }
-    }
-
     // Força versão de linguagem 1.8 e JVM 17 no Kotlin para todas as dependências
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
         kotlinOptions {
