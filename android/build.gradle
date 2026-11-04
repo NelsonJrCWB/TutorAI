@@ -25,10 +25,14 @@ subprojects {
 subprojects {
     project.evaluationDependsOn(':app')
 
+    // Alinha a compatibilidade do Java e Kotlin para JVM 17 em todas as dependencias nativas
+    tasks.withType(JavaCompile).configureEach {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
         kotlinOptions {
-            languageVersion = "1.8"
-            apiVersion = "1.8"
             jvmTarget = "17"
         }
     }
